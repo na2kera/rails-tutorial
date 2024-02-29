@@ -6,11 +6,20 @@
   <div>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
+    <%# エラーメッセージ%>
+    <%# full_messages_forメソッドは、指定の属性に対応するわかりやすいエラーメッセージを含む配列を1個返します。その属性でエラーが発生していない場合、配列は空になります。%>
+     <% @article.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
 
   <div>
     <%= form.label :body %><br>
     <%= form.text_area :body %>
+    <%# エラーメッセージ%>
+    <% @article.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
 
   <div>

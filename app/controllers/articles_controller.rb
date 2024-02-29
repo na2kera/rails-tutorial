@@ -9,4 +9,20 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
   end
+
+  # 新しい記事を一件インスタンス化する。データベースには保存しない
+  def new
+    @article = Article.new
+  end
+
+  # 新しい記事を一件インスタンス化した後、データベースへの保存を試みる
+  def create
+    @article = Article.new(title: "...", body: "...")
+
+    if @article.save
+      redirect_to @article
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 end

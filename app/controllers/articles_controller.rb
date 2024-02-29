@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
 
   # 新しい記事を一件インスタンス化した後、データベースへの保存を試みる
   def create
-    @article = Article.new(title: "...", body: "...")
+    @article = Article.new(article_params)
 
     if @article.save
       redirect_to @article
@@ -25,4 +25,10 @@ class ArticlesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  # paramsをフィルタ（強く型付け）する
+  private
+    def article_params
+      params.require(:article).permit(:title, :body)
+    end
 end

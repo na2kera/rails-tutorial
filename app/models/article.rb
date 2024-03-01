@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+    has_many :comments
+
     # バリデーションチェック。入力された値が適切か判定
     # タイトル入力必須
     validates :title, presence: true

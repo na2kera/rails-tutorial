@@ -1,0 +1,25 @@
+<%# editとnewで同じフォームの表示なのでパーシャルと呼ばれる共有ビューにまとめる %>
+<%= form_with model: article do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+    <% article.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%# new.html.erbと比べると@articleがarticleで置き換えられている。特定のインスタンス変数に依存しないようになっている%>
+<%# パーシャルのファイル名は冒頭にアンダースコア_を必ず付けなければなりません（例: _form.html.erb）。ただし、レンダリングでパーシャルを参照するときはアンダースコアを付けません（例: render "form"）。%>

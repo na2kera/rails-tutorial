@@ -44,6 +44,15 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # データベースから記事を所得してdestroyメソッドで削除
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+  # rootパスにリダイレクトする
+    redirect_to root_path, status: :see_other
+  end
+
   # paramsをフィルタ（強く型付け）する
   private
     def article_params

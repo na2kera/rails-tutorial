@@ -3,6 +3,13 @@
 <p><%= @article.body %></p>
 
 <%# editページへのリンクを追加 %>
+<%# destroyページへのリンクを追加 %>
 <ul>
   <li><%= link_to "Edit", edit_article_path(@article) %></li>
+  <li><%= link_to "Destroy", article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
 </ul>
+<%# data-turbo-method="delete"を指定すると、GETリクエストではなくDELETEリクエストが送信されます。 %>
+<%# data-turbo-confirm="Are you sure?" を指定すると、リンクをクリックしたときに「Are you sure?」ダイアログが表示され、ユーザーが「キャンセル」をクリックするとリクエストを中止します。 %>

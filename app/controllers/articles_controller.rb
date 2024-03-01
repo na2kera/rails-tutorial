@@ -26,6 +26,24 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # CURD操作のupdateの部分のアクション
+  # editとupdateは上のnewやcreate似ている
+  # データベースから記事を所得して@articleに保存
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  # データベースから記事を所得してバリデーションチェックが成功した時に記事ページにリダイレクト
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   # paramsをフィルタ（強く型付け）する
   private
     def article_params

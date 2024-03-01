@@ -1,0 +1,12 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# テストで使うサンプルコメント
+
+one:
+  commenter: MyString
+  body: MyText
+  article: one
+
+two:
+  commenter: MyString
+  body: MyText
+  article: two

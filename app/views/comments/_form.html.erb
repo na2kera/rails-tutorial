@@ -9,6 +9,13 @@
     <%= form.label :body %><br>
     <%= form.text_area :body %>
   </p>
+
+<%# statusの選択を追加%>
+  <p>
+  <%= form.label :status %><br>
+  <%= form.select :status, Visible::VALID_STATUSES, selected: 'public' %>
+</p>
+ 
   <p>
     <%= form.submit %>
   </p>

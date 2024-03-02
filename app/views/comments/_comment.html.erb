@@ -1,0 +1,11 @@
+<%# @article.commentsから値を一つずつ取り出し、パーシャルと同じ名前の変数に自動的に代入する%>
+<%# 今回の場合はcommentがパーシャルの表示に利用できる%>
+<p>
+  <strong>Commenter:</strong>
+  <%= comment.commenter %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= comment.body %>
+</p>

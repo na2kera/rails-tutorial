@@ -18,18 +18,7 @@
 <%= render @article.comments %>
 
 <h2>Add a comment:</h2>
-<%# createアクションを呼び出す%>
-<%# form_with呼び出しでネストしたルーティングの一つの配列を渡す%>
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
-  <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%# 区切りの認識を自動で行う。app/views/comments/_form.html.erbと書く必要はない%>
+<%= render 'comments/form' %>
+
+<%# @articleオブジェクトはインスタンス変数なので、ビューでレンダリングされるどのパーシャルからもアクセスできます。%>

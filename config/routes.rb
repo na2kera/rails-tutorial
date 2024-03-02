@@ -7,7 +7,8 @@ Rails.application.routes.draw do
    # get "/articles/:id", to: "articles#show"
   
   # getで書いていたルーティングをresourcesで書き換え
-  resources  :articles
-
- 
+  resources  :articles do
+    # commentsの参照のためのルーティング
+    resources :comments
+  end
 end

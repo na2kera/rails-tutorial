@@ -11,4 +11,12 @@
       <strong>Comment:</strong>
       <%= comment.body %>
     </p>
+
+<%# 削除用のボタン%>
+     <p>
+        <%= link_to "Destroy Comment", [comment.article, comment], data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                    } %>
+    </p>
 <% end %>

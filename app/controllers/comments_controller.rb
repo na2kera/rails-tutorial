@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+    # コメントの削除を認証済みのユーザーだけもする
+    http_basic_authenticate_with name: "dhh", password: "secret", only: :destroy
     def create
         # 先に該当する記事をさがす
         @article = Article.find(params[:article_id])

@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  # http_basic_authenticate_withメソッドでindexとshow以外は認証を要求する
+  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
   def index
     # @で始まる変数はビューからでも参照できる
     @articles = Article.all

@@ -2,7 +2,8 @@ class Article < ApplicationRecord
     # visibleをインクルード
     include Visible
 
-    has_many :comments
+    # コメントと記事を関連づけるためにdependentオプションを指定
+    has_many :comments, dependent: :destroy
 
     # バリデーションチェック。入力された値が適切か判定
     # タイトル入力必須
